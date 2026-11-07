@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b12">
+
+  <title>OnionMusics | Creative Portfolio</title>
+
+  <meta name="description" content="OnionMusics - Brazilian music producer, programmer and Friday Night Funkin' chart designer.">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    :root {
+      --background: #090b12;
+      --surface: #111522;
+      --surface-light: #191f30;
+      --purple: #a855f7;
+      --blue: #38bdf8;
+      --text: #f4f4f8;
+      --muted: #a1a1b5;
+      --gradient: linear-gradient(110deg, #a855f7, #38bdf8);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--background);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 11, 18, 0.88);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid #ffffff12;
+    }
+
+    nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      background: var(--gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 570px;
+      padding: 110px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 25% 30%, #7926b733, transparent 45%),
+        radial-gradient(ellipse at 75% 60%, #087db833, transparent 45%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid #a855f766;
+      color: #c084fc;
+      padding: 7px 15px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      margin-bottom: 25px;
+      background: #a855f711;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900;
+      letter-spacing: -5px;
+      line-height: 1.05;
+    }
+
+    .hero h1 span {
+      background: var(--gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero h2 {
+      margin-top: 22px;
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 15px auto 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      padding: 12px 23px;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .button-primary {
+      background: var(--gradient);
+      color: #080b13;
+    }
+
+    .button-secondary {
+      border: 1px solid #ffffff35;
+      background: #ffffff08;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.15);
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 85px 24px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .section-title span {
+      color: var(--purple);
+    }
+
+    .section-description {
+      color: var(--muted);
+      margin-bottom: 35px;
+    }
+
+    /* ABOUT */
+
+    .about-card {
+      background: var(--surface);
+      border: 1px solid #ffffff12;
+      border-radius: 16px;
+      padding: 30px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .about-card strong {
+      color: var(--text);
+    }
+
+    /* PROJECTS */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project {
+      background: var(--surface);
+      border: 1px solid #ffffff12;
+      border-radius: 14px;
+      padding: 18px;
+      transition: 0.25s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: #a855f766;
+      box-shadow: 0 10px 35px #a855f711;
+    }
+
+    .project h3 {
+      font-size: 1.1rem;
+      margin: 15px 0 7px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 15px;
+    }
+
+    .video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 9px;
+      background: #000;
+    }
+
+    .project-link {
+      color: var(--blue);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill {
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid #ffffff12;
+      border-radius: 13px;
+    }
+
+    .skill h3 {
+      margin-bottom: 10px;
+      color: #c084fc;
+    }
+
+    .skill p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+
+    .contact-card {
+      text-align: center;
+      padding: 45px 25px;
+      border: 1px solid #a855f744;
+      border-radius: 16px;
+      background:
+        radial-gradient(ellipse at top, #7926b722, transparent 70%),
+        var(--surface);
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin: 12px auto 25px;
+      max-width: 550px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid #ffffff12;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer span {
+      color: var(--purple);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 750px) {
+      .project-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 0.75rem;
+      }
+
+      .logo {
+        font-size: 1.1rem;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      nav {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="#" class="logo">Onion<span>Musics</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+
+    <div class="hero">
+      <div class="hero-content">
+        <div class="tag">🇧🇷 Brazilian Creative Developer</div>
+
+        <h1>ONION<span>MUSICS</span></h1>
+
+        <h2>Music Producer · Programmer · Chart Designer</h2>
+
+        <p>
+          Hello! I'm Gabriel, also known as OnionMusics.
+          I'm a Brazilian creator passionate about music,
+          game development and Friday Night Funkin'.
+        </p>
+
+        <div class="buttons">
+          <a href="#projects" class="button button-primary">
+            Explore my work
+          </a>
+
+          <a href="#contact" class="button button-secondary">
+            Get in touch
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+      <h2 class="section-title">About <span>Me</span></h2>
+
+      <p class="section-description">
+        A little introduction.
+      </p>
+
+      <div class="about-card">
+        <p>
+          I'm Gabriel, a Brazilian creator who enjoys making
+          music, creating game content and experimenting
+          with programming.
+        </p>
+
+        <p>
+          My main interests include <strong>Friday Night Funkin'</strong>,
+          music production, remixing, chart design and
+          game scripting.
+        </p>
+
+        <p>
+          I'm always looking for opportunities to learn,
+          collaborate and contribute to creative projects.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+      <h2 class="section-title">Featured <span>Projects</span></h2>
+
+      <p class="section-description">
+        Some examples of my work and creative projects.
+      </p>
+
+      <div class="project-grid">
+
+        <article class="project">
+          <iframe class="video"
+            src="https://www.youtube-nocookie.com/embed/-2t7Yx7rTWg"
+            title="Turma do Gabriel Mod Showcase"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+
+          <h3>Turma do Gabriel</h3>
+
+          <p>
+            A Friday Night Funkin' mod featuring original
+            music, remixes, charts, animations, scripts
+            and custom events. Developed with contributions
+            from collaborators, including Foxy Velseb.
+          </p>
+
+          <a class="project-link"
+            href="https://youtu.be/-2t7Yx7rTWg"
+            target="_blank">
+            Watch project →
+          </a>
+        </article>
+
+        <article class="project">
+          <iframe class="video"
+            src="https://www.youtube-nocookie.com/embed/86QlW0EzrTo"
+            title="Remix Example 1"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+
+          <h3>Music Remix #1</h3>
+
+          <p>
+            An example of my remixing and music production work.
+          </p>
+
+          <a class="project-link"
+            href="https://youtu.be/86QlW0EzrTo"
+            target="_blank">
+            Watch video →
+          </a>
+        </article>
+
+        <article class="project">
+          <iframe class="video"
+            src="https://www.youtube-nocookie.com/embed/HrQmMJs_zpA"
+            title="Remix Example 2"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+
+          <h3>Music Remix #2</h3>
+
+          <p>
+            Another example of my music production and remix work.
+          </p>
+
+          <a class="project-link"
+            href="https://youtu.be/HrQmMJs_zpA"
+            target="_blank">
+            Watch video →
+          </a>
+        </article>
+
+        <article class="project">
+          <iframe class="video"
+            src="https://www.youtube-nocookie.com/embed/R8lryW-ZdkA"
+            title="Original Music"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+
+          <h3>Original Music</h3>
+
+          <p>
+            An original composition showcasing my music production.
+          </p>
+
+          <a class="project-link"
+            href="https://youtu.be/R8lryW-ZdkA"
+            target="_blank">
+            Listen →
+          </a>
+        </article>
+
+        <article class="project">
+          <iframe class="video"
+            src="https://www.youtube-nocookie.com/embed/A3NSOcutSoo"
+            title="Charting Examples"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+
+          <h3>Chart Design</h3>
+
+          <p>
+            Examples of my Friday Night Funkin' charting work.
+          </p>
+
+          <a class="project-link"
+            href="https://youtu.be/A3NSOcutSoo"
+            target="_blank">
+            Watch video →
+          </a>
+        </article>
+
+        <article class="project">
+          <iframe class="video"
+            src="https://www.youtube-nocookie.com/embed/lNgk0Rcxz0I"
+            title="Additional Mod Showcase"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+
+          <h3>Additional Mod Project</h3>
+
+          <p>
+            Another mod showcase featuring original songs and charts.
+          </p>
+
+          <a class="project-link"
+            href="https://youtu.be/lNgk0Rcxz0I"
+            target="_blank">
+            Watch project →
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+      <h2 class="section-title">My <span>Skills</span></h2>
+
+      <p class="section-description">
+        Tools and areas I have experience with.
+      </p>
+
+      <div class="skills-grid">
+
+        <div class="skill">
+          <h3>🎵 Music Production</h3>
+          <p>
+            FL Studio, original compositions,
+            music remixes and sound design.
+          </p>
+        </div>
+
+        <div class="skill">
+          <h3>💻 Programming</h3>
+          <p>
+            Lua, Haxe, Psych Engine scripting,
+            custom events and game modifications.
+          </p>
+        </div>
+
+        <div class="skill">
+          <h3>🎮 Chart Design</h3>
+          <p>
+            Friday Night Funkin' charting using
+            Psych Engine and official chart editors.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+      <div class="contact-card">
+        <h2 class="section-title">
+          Let's <span>Connect!</span>
+        </h2>
+
+        <p>
+          Interested in my work or want to collaborate?
+          Feel free to check out my GitHub profile.
+        </p>
+
+        <div class="buttons">
+          <a class="button button-primary"
+            href="https://github.com/OnionMusics"
+            target="_blank">
+            GitHub Profile
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      © 2026 <span>OnionMusics</span> · Made with creativity 💜
+    </p>
+  </footer>
+
+</body>
+</html>
